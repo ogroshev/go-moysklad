@@ -15,12 +15,12 @@ import (
 // [Документация МойСклад]: https://dev.moysklad.ru/doc/api/remap/1.2/reports/#otchety-otchet-pokazateli-kontragentow-pokazateli-kontragentow
 type ReportCounterparty struct {
 	Updated         Timestamp              `json:"updated"`         // Момент последнего изменения контрагента
-	LastEventDate   Timestamp              `json:"lastEventDate"`   // Дата последнего события
-	LastDemandDate  Timestamp              `json:"lastDemandDate"`  // Дата последней продажи
-	FirstDemandDate Timestamp              `json:"firstDemandDate"` // Дата первой продажи
+	LastEventDate   *Timestamp             `json:"lastEventDate"`   // Дата последнего события
+	LastDemandDate  *Timestamp             `json:"lastDemandDate"`  // Дата последней продажи
+	FirstDemandDate *Timestamp             `json:"firstDemandDate"` // Дата первой продажи
 	Counterparty    ReportCounterpartyInfo `json:"counterparty"`    // Контрагент
 	Meta            Meta                   `json:"meta"`            // Метаданные Отчета по данному контрагенту
-	LastEventText   string                 `json:"lastEventText"`   // Текст последнего события
+	LastEventText   *string                `json:"lastEventText"`   // Текст последнего события
 	DemandsSum      float64                `json:"demandsSum"`      // Сумма продаж
 	DiscountsSum    float64                `json:"discountsSum"`    // Сумма скидок
 	AverageReceipt  float64                `json:"averageReceipt"`  // Средний чек
